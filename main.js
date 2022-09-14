@@ -29,9 +29,10 @@ let shopItemsData = [{
     },
 ];
 
-let basket = JSON.parse(localStorage.getItem('data')) || [];
+//let basket = JSON.parse(localStorage.getItem('data')) || [];
 
-let basket1 = [];
+let basket1 = JSON.parse(localStorage.getItem("data1")) || [];
+
 
 let generateShop = () => {
     // return (shop.innerHTML = shopItemsData.map((x) => {
@@ -56,8 +57,7 @@ let generateShop = () => {
 
     return (shop.innerHTML = shopItemsData.map((x) => {
         let {id, name, price, desc, img} = x; // obj destructing.
-
-        let search = basket1.find((x) => x.id === id) || [];
+        let search = basket1.find((x) => x.id == id) || [];
 
         return `
         <div id=product-id-${id} class="item">
@@ -96,7 +96,10 @@ let increment1 = (id) => {
     else{
         search.item +=1;
     }
+
+    localStorage.setItem('data1', JSON.stringify(basket1));
     update1(id);
+
 }
 
 
@@ -112,7 +115,7 @@ let decrement1 = (id) => {
         search.item -=1;
     }
     //console.log(basket);
-
+    localStorage.setItem('data1', JSON.stringify(basket1));
     update1(id);
 }
 
@@ -126,10 +129,9 @@ let update1 = (id) => {
 let calculation1 = () =>{
    let cartIcon = document.getElementById("cartAmount");
    cartIcon.innerHTML = basket1.map((x) => x.item).reduce((x,y) => x + y, 0);
-
 }
 
-
+calculation1()
 
 // Code with Local storage not working...
 
