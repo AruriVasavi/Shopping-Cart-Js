@@ -96,10 +96,8 @@ let increment1 = (id) => {
     else{
         search.item +=1;
     }
-
-    localStorage.setItem('data1', JSON.stringify(basket1));
     update1(id);
-
+    localStorage.setItem('data1', JSON.stringify(basket1));
 }
 
 
@@ -107,16 +105,19 @@ let increment1 = (id) => {
 let decrement1 = (id) => {
     let search = basket1.find((x) => x.id === id)
 
+    if (search === undefined) return;
    // console.log(search);
-    if(search.item === 0){
+    else if(search.item === 0){
         return;
     }
     else{
         search.item -=1;
     }
     //console.log(basket);
-    localStorage.setItem('data1', JSON.stringify(basket1));
     update1(id);
+    basket1 = basket1.filter((x) => x.item !== 0);
+
+    localStorage.setItem('data1', JSON.stringify(basket1));
 }
 
 let update1 = (id) => {
