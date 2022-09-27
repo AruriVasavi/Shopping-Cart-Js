@@ -1,33 +1,5 @@
 let shop = document.getElementById('shop');
-let shopItemsData = [{
-    id:"1",
-    name:'Causal shirt',
-    price:45,
-    desc:"Lorem Ipsum,Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum",
-    img: "imgs/img-1.jpg"
-    },
-    {
-        id:"2",
-        name:'Office shirt',
-        price:100,
-        desc:"Lorem Ipsum,Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum",
-        img: "imgs/img-2.jpg"
-    },
-    {
-        id:"3",
-        name:'T shirt',
-        price:145,
-        desc:"Lorem Ipsum,Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum",
-        img: "imgs/img-3.jpg"
-    },
-    {
-        id:"4",
-        name:'Mens suit',
-        price:451,
-        desc:"vas Lorem IpsumLorem IpsumLorem Ipsum",
-        img: "imgs/img-4.jpg"
-    },
-];
+
 
 //let basket = JSON.parse(localStorage.getItem('data')) || [];
 
@@ -99,8 +71,6 @@ let increment1 = (id) => {
     update1(id);
     localStorage.setItem('data1', JSON.stringify(basket1));
 }
-
-
 
 let decrement1 = (id) => {
     let search = basket1.find((x) => x.id === id)
